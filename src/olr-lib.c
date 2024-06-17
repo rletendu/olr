@@ -42,7 +42,12 @@ void update_track( track_t* tck, car_t* car ) {
   else if ( car->trackID == TRACK_MAIN )  process_main_track( tck, car );
 
   /* Update car lap */          
-  if ( car->dist > ( cfg->nled_main*car->nlap -1) )  car->nlap++;
+  if ( car->dist > ( cfg->nled_main*car->nlap -1) )  {
+    #if (CAR_LAP_TIME>0)
+    if (car->nlap<=CAR_LAP_TIME) car->lap_time[car->nlap] = millis();
+    #endif
+    car->nlap++;
+  }
 }
 
 void process_aux_track( track_t* tck, car_t* car ){

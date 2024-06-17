@@ -81,8 +81,8 @@ enum hw_setup {    // If you have a custom hardware (i.e not the OLR PCB),
 // __________________Colors setup (Racing lights, Ramp, etc)________________ //
 //
 #define COLOR1         track.Color(255,0,0)     // Light controlled by DIG_CTRL_1_PIN
-#define COLOR2         track.Color(0,255,0)     // Light controlled by DIG_CTRL_2_PIN
-#define COLOR3         track.Color(0,0,255)     // Light controlled by DIG_CTRL_3_PIN
+#define COLOR2         track.Color(0,0,255)     // Light controlled by DIG_CTRL_2_PIN
+#define COLOR3         track.Color(0,255,0)     // Light controlled by DIG_CTRL_3_PIN
 #define COLOR4         track.Color(255,255,255) // Light controlled by DIG_CTRL_4_PIN
 
 #define COLOR_RAMP     track.Color(64,0,64)
@@ -90,7 +90,7 @@ enum hw_setup {    // If you have a custom hardware (i.e not the OLR PCB),
 #define COLOR_BOXMARKS track.Color(64,64,0)
 #define WARNING_BLINK_COLOR  track.Color(32,20,0)
 
-#define LED_SEMAPHORE  12 // LED in the Stip used as a Semaphore (Countdown phase)
+#define LED_SEMAPHORE  8 // LED in the Stip used as a Semaphore (Countdown phase)
 
 ///////////////////////////////////////////////////////////////////////////////
 

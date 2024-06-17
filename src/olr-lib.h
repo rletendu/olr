@@ -57,6 +57,9 @@ typedef struct{
     bool leaving;
     float battery;
     bool charging;
+    #if CAR_LAP_TIME
+    uint32_t lap_time[CAR_LAP_TIME];
+    #endif
 }car_t;
 
 

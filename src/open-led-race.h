@@ -83,6 +83,7 @@ ack_t manageSerialCommand();
 
 void printdebug( const char * msg, int errlevel );
 void print_cars_positions( car_t* cars);
+void print_cars_laptime( car_t* cars );
 void run_racecycle( void );
 void draw_winner( track_t* tck, uint32_t color);
 

@@ -14,16 +14,23 @@ extern "C"{
 
 // Default values loaded on "D" command received (Serial Protocol) 
 //////////////////////////////////////////////////////////////////
-#define MAXLED          300 
+#define MAXLED          360 
 #define BOXLEN          60 
 #define NUMLAP          5 
 #define BATTERY_MODE    false
-#define AUTOSTART_MODE  false
+#define AUTOSTART_MODE  true
 #define BOX_ALWAYS_ON   false
-#define SLOPE_ALWAYS_ON false
-#define PLAYER_3        false
-#define PLAYER_4        false
-#define DEMO_MODE_ST    false
+#define SLOPE_ALWAYS_ON true
+#define PLAYER_3        true
+#define PLAYER_4        true
+#define DEMO_MODE_ST    true
+
+#define RAMP_START      159
+#define RAMP_CENTER     222
+#define RAMP_END        285
+#define RAMP_HIGH       3
+#define CAR_LAP_TIME    NUMLAP+1
+
 //////////////////////////////////////////////////////////////////
 
 

@@ -273,8 +273,12 @@ void loop() {
         if( race.cfg.startline ) { // Standalone: Always true - Network mode: only racetrack where race starts
           // Countdown: semaphore and tones
           if(start_race_done()) { // Countdown done 
+            uint32_t start_race_ms = millis();
             for( int i = 0; i < race.numcars; ++i ) {
               cars[i].st = CAR_ENTER;
+              #if (CAR_LAP_TIME>0) 
+              cars[i].lap_time[0] = start_race_ms;
+              #endif
             }
             race.phase = RACING;
             send_phase( race.phase );
@@ -316,6 +320,9 @@ void loop() {
             race.phase = COMPLETE;
             race.winner = (byte) i;
             send_phase( race.phase );
+            #if CAR_LAP_TIME
+            print_cars_laptime(cars);
+            #endif
             break;
           }
         }
@@ -479,6 +486,7 @@ void run_racecycle( car_t *car, int caridx ) {
         if( car->repeats >= race.cfg.nrepeat 
               && race.cfg.finishline ) {
             car->st = CAR_FINISH;  
+            car->lap_time[race.cfg.nlap] = millis();
         }
     }
    
@@ -547,6 +555,17 @@ void print_cars_positions( car_t* cars ) {
     }
 }
 
+void print_cars_laptime( car_t* cars ) {
+#if (CAR_LAP_TIME>0)
+    for( int i = 0; i < race.numcars; ++i ) {
+      for( int j = 0; j < race.cfg.nlap; ++j ) {
+          uint32_t lap_time = cars->lap_time[j+1]-cars->lap_time[j];
+          sprintf( txbuff, "l%d%d,%lu%c\0", i + 1, j+1, lap_time, EOL );
+          serialCommand.sendCommand(txbuff);
+        }
+    }
+#endif
+}
 
 
 /* 
