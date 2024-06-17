@@ -561,7 +561,7 @@ void print_cars_laptime( car_t* cars ) {
 #if (CAR_LAP_TIME>0)
     for( int i = 0; i < race.numcars; ++i ) {
       for( int j = 0; j < race.cfg.nlap; ++j ) {
-          uint32_t lap_time = cars->lap_time[j+1]-cars->lap_time[j];
+          uint32_t lap_time = cars[i].lap_time[j+1]-cars[i].lap_time[j];
           sprintf( txbuff, "l%d%d,%lu%c\0", i + 1, j+1, lap_time, EOL );
           serialCommand.sendCommand(txbuff);
         }
