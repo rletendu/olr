@@ -486,7 +486,9 @@ void run_racecycle( car_t *car, int caridx ) {
         if( car->repeats >= race.cfg.nrepeat 
               && race.cfg.finishline ) {
             car->st = CAR_FINISH;  
+            #if (CAR_LAP_TIME>0)
             car->lap_time[race.cfg.nlap] = millis();
+            #endif
         }
     }
    
