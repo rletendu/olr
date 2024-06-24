@@ -29,7 +29,10 @@ extern "C"{
 #define RAMP_CENTER     222
 #define RAMP_END        285
 #define RAMP_HIGH       3
-#define CAR_LAP_TIME    NUMLAP+1
+//#define CAR_LAP_TIME    NUMLAP+1
+#define CAR_LAP_TIME    0
+
+
 
 //////////////////////////////////////////////////////////////////
 
