@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "olr_display",
+			"path": "../olr_display/olr_display"
+		}
+	],
+	"settings": {}
+}

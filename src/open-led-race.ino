@@ -559,7 +559,6 @@ void print_cars_positions( car_t* cars ) {
       int const rpos = get_relative_position( &cars[i] );
       sprintf( txbuff, "p%d%s%d,%d,%d%c", i + 1, tracksID[cars[i].trackID], cars[i].nlap, rpos,(int)cars[i].battery, EOL );
       serialCommand.sendCommand(txbuff);
-      delay(1);
     }
 }
 
@@ -576,7 +575,6 @@ void print_cars_laptime( car_t* cars ) {
           // lxy,zzzz : x:car y:lap_number, z:lap_time
           sprintf( txbuff, "l%d%d,%lu%c\0", i + 1, j+1, lap_time, EOL );
           serialCommand.sendCommand(txbuff);
-          delay(1);
         }
     }
 #endif
