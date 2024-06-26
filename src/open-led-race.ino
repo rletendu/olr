@@ -103,6 +103,9 @@ static uint32_t car_color[]={
 void setup() {
 
   Serial.begin(115200);
+  #ifdef ARDUINO_AVR_NANO_EVERY
+  Serial1.begin(115200);
+  #endif
   randomSeed( analogRead(A6) + analogRead(A7) );
   controller_setup( );
   param_load( &tck.cfg );

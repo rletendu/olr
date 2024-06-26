@@ -60,6 +60,9 @@ int SerialCommand::checkSerial() {
 
 
 void SerialCommand::sendCommand(char* str) {
+  #ifdef ARDUINO_AVR_NANO_EVERY
+  Serial1.print(str);
+  #endif
   // get command length
   int dlen=0;
   for(; dlen<80; dlen++ ) { // "dlen<80" to avoid infinite loop on malformed str without EOC 
